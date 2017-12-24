@@ -41,9 +41,9 @@ RUN apt-get update \
       xdg-utils \
       wget
 
-WORKDIR /app
-RUN yarn add puppeteer
+WORKDIR /app/screenshot2slack
 
-COPY ./screenshot.js .
+COPY . .
+RUN yarn install
 
-ENTRYPOINT ["node", "/app/screenshot.js"]
+ENTRYPOINT ["node", "/app/screenshot2slack/main.js"]
