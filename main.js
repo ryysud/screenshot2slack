@@ -5,6 +5,8 @@ const puppeteer = require('puppeteer');
 // For puppeteer
 const TARGET_URL = process.env.TARGET_URL || 'https://github.com/';
 const FILE_NAME = process.env.FILE_NAME || 'example.png';
+const WIDTH = process.env.WIDTH || 1280;
+const HEIGHT = process.env.HEIGHT || 768;
 
 // For posting to slack
 const API_URL = 'https://slack.com/api/files.upload';
@@ -22,7 +24,8 @@ async function loginWithCookie(page, cookiesStr) {
 (async () => {
   const browser = await puppeteer.launch({
     args: [
-      '--no-sandbox'
+      '--no-sandbox',
+      `--window-size=${WIDTH},${HEIGHT}`,
     ]
   });
 
@@ -37,8 +40,10 @@ async function loginWithCookie(page, cookiesStr) {
     await loginWithCookie(page, process.env.COOKIES);
   }
     
-  const page = await browser.newPage();
   await page.goto(TARGET_URL);
+  //// disable default viewport
+  // see https://github.com/GoogleChrome/puppeteer/issues/1183
+  await page._client.send('Emulation.clearDeviceMetricsOverride');
   await page.screenshot({path: FILE_NAME});
 
   await browser.close();
