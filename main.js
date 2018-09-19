@@ -7,6 +7,7 @@ const TARGET_URL = process.env.TARGET_URL || 'https://github.com/';
 const FILE_NAME = process.env.FILE_NAME || 'example.png';
 const WIDTH = process.env.WIDTH || 1280;
 const HEIGHT = process.env.HEIGHT || 768;
+const FULL_PAGE = process.env.FULL_PAGE;
 
 // For posting to slack
 const API_URL = 'https://slack.com/api/files.upload';
@@ -45,7 +46,7 @@ async function loginWithCookie(page, cookiesStr) {
   //// disable default viewport
   // see https://github.com/GoogleChrome/puppeteer/issues/1183
   await page._client.send('Emulation.clearDeviceMetricsOverride');
-  await page.screenshot({path: FILE_NAME});
+  await page.screenshot({path: FILE_NAME, fullPage: (FULL_PAGE==='true')});
 
   await browser.close();
 

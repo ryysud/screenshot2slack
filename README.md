@@ -20,6 +20,7 @@ Environment Variables
     * **FILE_NAME**: File name to post. default: `example.png`.
     * **WIDTH**: Width of browser. default: `1280`.
     * **HEIGHT**: Height of browser. default: `768`.
+    * **FULL_PAGE**: When true, takes a screenshot of the full scrollable page. default: `false`.
     * **CHANNEL**: Slack channel name to post. default: `general`.
     * **BASIC_AUTH_USERNAME**: Username to pass basic authentication.
     * **BASIC_AUTH_PASSWORD**: Password to pass basic authentication.
