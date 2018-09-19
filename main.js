@@ -15,7 +15,6 @@ const CHANNEL = process.env.CHANNEL || 'general';
 
 async function loginWithCookie(page, cookiesStr) {
   const cookies = JSON.parse(cookiesStr);
-  console.log('cookies', cookies);
   for (let cookie of cookies) {
     await page.setCookie(cookie);
   }
