@@ -28,6 +28,8 @@ async function loginWithCookie(page, cookiesStr) {
     ]
   });
 
+  const page = await browser.newPage();
+
   // Basic Auth
   const BASIC_AUTH_USERNAME = process.env.BASIC_AUTH_USERNAME;
   const BASIC_AUTH_PASSWORD = process.env.BASIC_AUTH_PASSWORD;
@@ -38,7 +40,7 @@ async function loginWithCookie(page, cookiesStr) {
   if (process.env.COOKIES != null) {
     await loginWithCookie(page, process.env.COOKIES);
   }
-    
+
   await page.goto(TARGET_URL);
   //// disable default viewport
   // see https://github.com/GoogleChrome/puppeteer/issues/1183
