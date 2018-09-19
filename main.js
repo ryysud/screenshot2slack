@@ -3,8 +3,8 @@ const request = require('request');
 const puppeteer = require('puppeteer');
 
 // For puppeteer
-const TARGET_URL = 'https://github.com/GoogleChrome/puppeteer';
-const FILE_NAME = 'example.png';
+const TARGET_URL = process.env.TARGET_URL || 'https://github.com/';
+const FILE_NAME = process.env.FILE_NAME || 'example.png';
 
 // For posting to slack
 const API_URL = 'https://slack.com/api/files.upload';
