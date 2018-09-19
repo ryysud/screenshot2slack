@@ -44,7 +44,7 @@ RUN apt-get update \
 # Add CJK fonts
 RUN apt-get update \
  && apt-get install -y \
-      fonts-noto
+      fonts-takao
 
 WORKDIR /app/screenshot2slack
 
