@@ -4,7 +4,7 @@
   "main": "main.js",
   "repository": "https://github.com/yuki-takei/screenshot2slack.git",
   "author": "Yuki Takei <yuki@weseek.co.jp>",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "dependencies": {
     "puppeteer": "^1.8.0",
     "request": "^2.88.0"

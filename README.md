@@ -34,3 +34,9 @@ Environment Variables
             ]
             ```
         * See [Puppeteer Docs](https://pptr.dev/#?product=Puppeteer&version=v1.8.0&show=api-pagesetcookiecookies).
+
+License
+=======
+
+* Apache License 2.0
+* See LICENSE file.
