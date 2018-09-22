@@ -61,9 +61,9 @@ async function loginWithCookie(page, cookiesStr) {
   };
   request.post(data, function(error, response, body) {
       if (!error && response.statusCode == 200) {
-          console.log('Success :)');
+          console.log('Uploading a screenshot to slack is Success :)');
       } else {
-          console.log('Failure :(');
+          console.log('Uploading a screenshot to slack is Failure :(');
       }
   });
 
