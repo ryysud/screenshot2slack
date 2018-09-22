@@ -1,5 +1,8 @@
 # screenshot2slack
 
+[![Tags](https://img.shields.io/github/tag/ryysud/screenshot2slack.svg?style=flat-square)](https://github.com/ryysud/screenshot2slack/tags)
+[![Docker Build Status](https://img.shields.io/docker/build/ryysud/screenshot2slack.svg?style=flat-square)](https://hub.docker.com/r/ryysud/screenshot2slack/builds)
+[![Docker Pulls](https://img.shields.io/docker/pulls/ryysud/screenshot2slack.svg?style=flat-square)](https://hub.docker.com/r/ryysud/screenshot2slack)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 ## Overview
@@ -19,36 +22,62 @@ See https://github.com/GoogleChrome/puppeteer .
 ### Getting started
 
 ```bash
-$ docker build -t screenshot2slack .
 $ docker run --rm \
-  -e SLACK_BOT_TOKEN=xxx-xxx-xxx \
-  -e CHANNEL=your-channel\
-  screenshot2slack
+    -e SLACK_BOT_TOKEN=xxx-xxx-xxx \
+    -e CHANNEL=your-channel \
+    ryysud/screenshot2slack:latest
+```
+
+### Specify URL, width and height
+
+```bash
+$ docker run --rm \
+    -e SLACK_BOT_TOKEN=xxx-xxx-xxx \
+    -e CHANNEL=your-channel \
+    -e TARGET_URL=https://github.com/ryysud/screenshot2slack \
+    -e WIDTH=1920 \
+    -e HEIGHT=1080 \
+    ryysud/screenshot2slack:latest
+```
+
+### Via Basic authentication
+
+```bash
+$ docker run --rm \
+    -e SLACK_BOT_TOKEN=xxx-xxx-xxx \
+    -e CHANNEL=your-channel \
+    -e TARGET_URL=https://example.com/path/to/basic-authentication-page \
+    -e BASIC_AUTH_USERNAME=username \
+    -e BASIC_AUTH_PASSWORD=password \
+    ryysud/screenshot2slack:latest
 ```
 
 ## Environment Variables
 
-- **Required**
-    - **SLACK_BOT_TOKEN**: Token string to post to slack.
-- **Option**
-    - **TARGET_URL**: Screen shot target URL. default: `https://github.com`.
-    - **FILE_NAME**: File name to post. default: `example.png`.
-    - **WIDTH**: Width of browser. default: `1280`.
-    - **HEIGHT**: Height of browser. default: `768`.
-    - **FULL_PAGE**: When true, takes a screenshot of the full scrollable page. default: `false`.
-    - **CHANNEL**: Slack channel name to post. default: `general`.
-    - **BASIC_AUTH_USERNAME**: Username to pass basic authentication.
-    - **BASIC_AUTH_PASSWORD**: Password to pass basic authentication.
-    - **COOKIES**: JSON Array string to pass to browser.
-        - e.g.
-            ```javascript
-            [
-              {"name": "_session", "value": "xxxx", ...}`,
-              {"name": "foo", "value": "bar", ...}`,
-              ...
-            ]
-            ```
-        * See [Puppeteer Docs](https://pptr.dev/#?product=Puppeteer&version=v1.8.0&show=api-pagesetcookiecookies).
+| Name | Description | Reqired | Default |
+| :-: | :-: | :-: | :-: |
+| SLACK_BOT_TOKEN | Token string to post to slack. | ◯ | - |
+| TARGET_URL | Screen shot target URL. | - | `https://github.com` |
+| FILE_NAME | File name to post. | - | `example.png` |
+| WIDTH | Width of browser. | - | `1280` |
+| HEIGHT | Height of browser. | - | `768` |
+| FULL_PAGE | When true, takes a screenshot of the full scrollable page. | - | `false` |
+| CHANNEL | Slack channel name to post. | - | `general` |
+| BASIC_AUTH_USERNAME | Username to pass basic authentication. | - | `null` |
+| BASIC_AUTH_PASSWORD | Password to pass basic authentication. | - | `null` |
+| COOKIES | JSON Array string to pass to browser. | - | `null` |
+
+Example of COOKIES
+
+```javascript
+[
+    {"name": "_session", "value": "xxx", ...},
+    {"name": "foo", "value": "bar", ...},
+    ...
+]
+```
+
+See [Puppeteer Docs](https://pptr.dev/#?product=Puppeteer&version=v1.8.0&show=api-pagesetcookiecookies).
 
 ## License
 
