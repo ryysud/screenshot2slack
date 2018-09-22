@@ -1,4 +1,5 @@
 FROM node:8
+LABEL maintainer "Ryuma Yoshida <ryuma.y1117@gmail.com>"
 
 RUN apt-get update \
  && apt-get install -y \
