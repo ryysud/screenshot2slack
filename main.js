@@ -3,7 +3,7 @@ const request = require('request');
 const puppeteer = require('puppeteer');
 
 // For puppeteer
-const TARGET_URL = process.env.TARGET_URL || 'https://github.com/';
+const TARGET_URL = process.env.TARGET_URL || 'https://github.com';
 const FILE_NAME = process.env.FILE_NAME || 'example.png';
 const WIDTH = process.env.WIDTH || 1280;
 const HEIGHT = process.env.HEIGHT || 768;
