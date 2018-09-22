@@ -1,4 +1,4 @@
-FROM node:8.9.3
+FROM node:8
 
 RUN apt-get update \
  && apt-get install -y \
@@ -40,6 +40,11 @@ RUN apt-get update \
       lsb-release \
       xdg-utils \
       wget
+
+# Add CJK fonts
+RUN apt-get update \
+ && apt-get install -y \
+      fonts-takao
 
 WORKDIR /app/screenshot2slack
 
