@@ -54,7 +54,7 @@ $ docker run --rm \
 
 ## Environment Variables
 
-| Name | Description | Reqired | Default |
+| Name | Description | Required | Default |
 | :-: | :-: | :-: | :-: |
 | SLACK_BOT_TOKEN | Token string to post to slack. | ◯ | - |
 | TARGET_URL | Screen shot target URL. | - | `https://github.com` |
