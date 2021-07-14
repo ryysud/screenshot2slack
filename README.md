@@ -66,6 +66,7 @@ $ docker run --rm \
 | BASIC_AUTH_USERNAME | Username to pass basic authentication. | - | `null` |
 | BASIC_AUTH_PASSWORD | Password to pass basic authentication. | - | `null` |
 | COOKIES | JSON Array string to pass to browser. | - | `null` |
+| SCREENSHOT_DELAY_SEC | Number of seconds to delay time to take screenshot. | - | `null` |
 
 Example of COOKIES
 

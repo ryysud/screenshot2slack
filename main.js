@@ -46,6 +46,11 @@ async function loginWithCookie(page, cookiesStr) {
   //// disable default viewport
   // see https://github.com/GoogleChrome/puppeteer/issues/1183
   await page._client.send('Emulation.clearDeviceMetricsOverride');
+
+  // Wait delay
+  if (process.env.SCREENSHOT_DELAY_SEC != null) {
+    await page.waitFor(process.env.SCREENSHOT_DELAY_SEC * 1000);
+  }
   await page.screenshot({path: FILE_NAME, fullPage: (FULL_PAGE==='true')});
 
   await browser.close();
