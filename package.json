@@ -1,6 +1,6 @@
 {
   "name": "screenshot2slack",
-  "version": "0.2.1",
+  "version": "0.4.0-rc.1",
   "description": "A tool uploading a screenshot to slack with puppeteer on docker",
   "main": "main.js",
   "repository": "https://github.com/ryysud/screenshot2slack.git",
